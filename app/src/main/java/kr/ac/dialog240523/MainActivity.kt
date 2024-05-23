@@ -14,14 +14,16 @@ class MainActivity : AppCompatActivity() {
         var btnDialog = findViewById<Button>(R.id.btnDialog)
 
         btnDialog.setOnClickListener {
-            //기본 목록 대화상자
+            //라디오 버튼 목록 대화상자
             var placeArr = arrayOf("집1", "집2", "집3")
+            var selectArr = booleanArrayOf(true, false, false)
             var dialog = AlertDialog.Builder(this@MainActivity)
             dialog.setTitle("좋아하는 핫플")
             dialog.setIcon(R.drawable.icon1)
-            dialog.setItems(placeArr){ d1, which ->
+            dialog.setSingleChoiceItems(placeArr, 1){d1, which->
                 btnDialog.text = placeArr[which]
             }
+
             dialog.setPositiveButton("닫기", null)
             dialog.show()
 
